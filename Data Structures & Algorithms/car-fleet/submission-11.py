@@ -1,0 +1,24 @@
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        stack = []
+        ps = [(p,s) for p, s in zip(position,speed)]
+        ps.sort(reverse = True)
+        for p, s in ps:
+            arrival = (target-p) / s
+            stack.append(arrival)
+            if len(stack) >=2 and stack[-1] <= stack[-2]:
+                stack.pop()
+        return len(stack)
+
+
+
+
+     
+
+
+
+
+
+
+        
+        
